@@ -1,11 +1,8 @@
-syntax: glob
-
 *.o
 *.a
 klisp
 TAGS
-.git
 *.db
 *.so
-
-
+/result
+/.vscode
