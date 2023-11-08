@@ -149,6 +149,14 @@ void do_combine_operator(klisp_State *K)
            this could be optimized but this case (multiply wrapped
            applicatives) is pretty rare
         */
+
+        TValue comb_cont =
+            kmake_continuation(K, kget_cc(K), do_combine_operands,
+                                3, arguments, env, si);
+
+        kset_cc(K, comb_cont);
+        kapply_cc(K, comb);
+        return;
         break;
     }
     case K_TOPERATIVE:
